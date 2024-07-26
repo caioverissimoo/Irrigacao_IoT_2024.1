@@ -1,0 +1,189 @@
+[
+    {
+        "id": "385d4ed307ae1b0e",
+        "type": "tab",
+        "label": "WL_Simple_Dashboard_UplinkOnly",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "85b1885cc93bb35d",
+        "type": "websocket in",
+        "z": "385d4ed307ae1b0e",
+        "name": "Loriot Uplink",
+        "server": "",
+        "client": "54daa66.5f90158",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "d8028ded2dcf6d0c"
+            ]
+        ]
+    },
+    {
+        "id": "a3d332750fd579c9",
+        "type": "comment",
+        "z": "385d4ed307ae1b0e",
+        "name": "TODO: (click for info)",
+        "info": "Edit the \"Loriot Uplink\" node with your LORIOT WebSocket Token.\n\nYou will find your LORIOT WebSocket Token under Application -> SampleApp -> Output.",
+        "x": 160,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d8028ded2dcf6d0c",
+        "type": "json",
+        "z": "385d4ed307ae1b0e",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 320,
+        "wires": [
+            [
+                "5a0d95268c32eada"
+            ]
+        ]
+    },
+    {
+        "id": "5a0d95268c32eada",
+        "type": "function",
+        "z": "385d4ed307ae1b0e",
+        "name": "Environmental Data Decode",
+        "func": "var SoilTemperature = {payload: parseInt(\"0x\" + msg.payload.data.substring(0, 4))};\nvar SoilHumidity = {payload: parseInt(\"0x\" + msg.payload.data.substring(4, 8))};\n\nreturn [SoilTemperature, SoilHumidity];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 560,
+        "y": 320,
+        "wires": [
+            [
+                "57f17bc31657bc30"
+            ],
+            [
+                "c28a7cbb9639a7a6"
+            ]
+        ]
+    },
+    {
+        "id": "57f17bc31657bc30",
+        "type": "ui_gauge",
+        "z": "385d4ed307ae1b0e",
+        "name": "",
+        "group": "49f10065.1c4b4",
+        "order": 1,
+        "width": 5,
+        "height": 3,
+        "gtype": "bar",
+        "title": "Soil Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": 10,
+        "seg2": 30,
+        "x": 820,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c28a7cbb9639a7a6",
+        "type": "ui_gauge",
+        "z": "385d4ed307ae1b0e",
+        "name": "",
+        "group": "49f10065.1c4b4",
+        "order": 2,
+        "width": 5,
+        "height": 3,
+        "gtype": "bar",
+        "title": "Soil Humidity",
+        "label": "%Hum",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": 30,
+        "seg2": 70,
+        "x": 820,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "09c1d9c80ad4e22c",
+        "type": "ui_text",
+        "z": "385d4ed307ae1b0e",
+        "group": "49f10065.1c4b4",
+        "order": 0,
+        "width": 15,
+        "height": 1,
+        "name": "Environmental Data Label",
+        "label": "",
+        "format": "Environmental Data",
+        "layout": "row-left",
+        "x": 230,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "9279d43ff125aaf2",
+        "type": "inject",
+        "z": "385d4ed307ae1b0e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "{\"data\":\"2400002F\"}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "d8028ded2dcf6d0c"
+            ]
+        ]
+    },
+    {
+        "id": "54daa66.5f90158",
+        "type": "websocket-client",
+        "path": "wss://us1.loriot.io/app?token=vn4IrAAAAA11czEubG9yaW90LmlvTpi4HGOYzfviBxSe8ZdPeQ==",
+        "tls": "",
+        "wholemsg": "false",
+        "hb": "0",
+        "subprotocol": ""
+    },
+    {
+        "id": "49f10065.1c4b4",
+        "type": "ui_group",
+        "name": "Environmental Data Output",
+        "tab": "469d8308.1589dc",
+        "order": 1,
+        "disp": true,
+        "width": "18",
+        "collapse": false
+    },
+    {
+        "id": "469d8308.1589dc",
+        "type": "ui_tab",
+        "name": "WL_Simple_Dashboard_UplinkOnly",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
