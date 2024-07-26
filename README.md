@@ -12,6 +12,7 @@ Este projeto visa implementar um sistema de irrigação inteligente utilizando t
 
 ## Simulação
 A simulação utilizada neste projeto foi reaproveitada de um trabalho de referência, adaptada para atender às necessidades específicas da Fazenda Fittipaldi.
+- **Repositório de Referência**: [Visualizar Referência](https://github.com/umjourje/CPS730-IoT-2023_3)
 
 ## Estrutura do Projeto
 O projeto é dividido nas seguintes partes:
