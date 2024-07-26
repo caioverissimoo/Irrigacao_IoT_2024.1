@@ -20,3 +20,6 @@ O projeto é dividido nas seguintes partes:
 2. **Nó IoT**: Configuração do nó IoT para coleta e transmissão dos dados.
 3. **Rede e Infraestrutura**: Descrição da estrutura de rede utilizada, incluindo camadas de borda, intermediária e nuvem.
 4. **Visualização dos Dados**: Painel de controle para visualização dos dados em tempo real e histórico.
+
+## Dashboard
+O Dashboard foi implementado na plataforma LORIOT.io, em conjunto com o ambiente STM32CUBEMONITOR. Ele representa o fluxo de comunicação uplink (sensores -> nó de controle) na versão atual. Próximas versões devem fechar a cadeia de comunicação adicionando a possibilidade do envio de comandos downlink (nó de controle -> sensores) e realizar a conexão com sensores reais ou um ambiente de simulação para que dados reais sejam mostrados nele, substituindo o nó de injeção da versão atual.
