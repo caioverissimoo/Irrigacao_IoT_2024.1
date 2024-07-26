@@ -22,4 +22,13 @@ O projeto é dividido nas seguintes partes:
 4. **Visualização dos Dados**: Painel de controle para visualização dos dados em tempo real e histórico.
 
 ## Dashboard
-O Dashboard foi implementado na plataforma LORIOT.io, em conjunto com o ambiente STM32CUBEMONITOR. Ele representa o fluxo de comunicação uplink (sensores -> nó de controle) na versão atual. Próximas versões devem fechar a cadeia de comunicação adicionando a possibilidade do envio de comandos downlink (nó de controle -> sensores) e realizar a conexão com sensores reais ou um ambiente de simulação para que dados reais sejam mostrados nele, substituindo o nó de injeção da versão atual.
+O Dashboard foi implementado na plataforma **LORIOT.io**, em conjunto com o ambiente **STM32CUBEMONITOR**. 
+
+### Versão Atual
+- **Fluxo de Comunicação Uplink**: Sensores -> Nó de Controle.
+- **Nós de Injeção**: Utilizados para simular dados reais.
+
+### Próximas Versões
+- **Comunicação Downlink**: Adicionar a capacidade de envio de comandos do nó de controle para os sensores.
+- **Conexão com Sensores Reais**: Integrar sensores reais ou ambiente de simulação para exibir dados reais.
+- **Substituição do Nó de Injeção**: Implementar dados reais no dashboard, substituindo os nós de injeção atuais.
